@@ -6,6 +6,10 @@ spring:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
     static-path-pattern: /resources/**
+  security:
+    user:
+      name: username
+      password: password
 
 app:
   name: "sample-rest-api"

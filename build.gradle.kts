@@ -32,6 +32,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jetty:$springBootVersion")
     compileOnly("org.apache.tomcat.embed:tomcat-embed-jasper:9.0.63")
 
+    // Security
+    implementation("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
+    compileOnly("org.springframework.security:spring-security-config:5.7.1")
+    compileOnly("org.springframework.security:spring-security-web:5.7.1")
+    testImplementation("org.springframework.security:spring-security-test:5.7.1")
+
     // Test
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
