@@ -1,0 +1,38 @@
+*.log
+tmp
+*.retry
+.DS_Store
+*.pem
+
+### Gradle ###
+.gradle
+/build/
+/out/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/src/main/resources/application-kevin.yml
+
+### VSCode ###
+.vscode
