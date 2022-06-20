@@ -21,8 +21,7 @@ class MyServiceTest {
         return Stream.of(
                         Arguments.of(new int[]{1, 2, 3}, 4),
                         Arguments.of(new int[]{-1, -2, -3}, 1),
-                        Arguments.of(new int[]{}, 1),
-                        Arguments.of(new int[]{-1, -2, 3}, 4)
+                        Arguments.of(new int[]{}, 1)
                 );
     }
 

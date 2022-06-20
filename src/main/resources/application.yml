@@ -1,3 +1,13 @@
 spring:
   banner:
     location: classpath:/Banner.txt
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /resources/**
+
+app:
+  name: "sample-rest-api"
+  contact: opinilla@gmail.com
+  git: https://github.com/Solksjaer/sample-rest-api.git

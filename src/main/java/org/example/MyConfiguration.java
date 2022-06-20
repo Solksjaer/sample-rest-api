@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+/**
+ * @author <a href="mailto:opinilla@gmail.com">Oscar Pinilla</a>, <a href="https://github.com/Solksjaer">GitHub</a>
+ */
 @Configuration
 @ComponentScan(basePackages = "org.example")
-@ComponentScan
 @Slf4j
 public class MyConfiguration {
 

@@ -6,6 +6,8 @@ tmp
 
 ### Gradle ###
 .gradle
+/gradlew
+/gradlew.bat
 /build/
 /out/
 !gradle/wrapper/gradle-wrapper.jar
