@@ -1,19 +1,24 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 /**
  * @author <a href="mailto:opinilla@gmail.com">Oscar Pinilla</a>, <a href="https://github.com/Solksjaer">GitHub</a>
  */
+@Validated
 @Controller
 public class WebController {
 
@@ -25,6 +30,11 @@ public class WebController {
 
     @Value("${app.contact}")
     private String appContact;
+
+    @Value("${app.currency.bitcoin}")
+    private Float bitcoin;
+    @Value("${app.currency.dogecoin}")
+    private Float dogecoin;
 
     @GetMapping(path = "/")
     public ModelAndView home(final ModelAndView modelAndView) {
@@ -38,12 +48,21 @@ public class WebController {
         return modelAndView;
     }
 
-    @GetMapping(path = "/currency", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
-    String currency(final HttpServletRequest request,
-                    @RequestParam("currency") final String currency,
-                    @RequestParam("locale") final String locale) throws IOException {
-        return "someResponse";
+    @GetMapping(path = "/currency")
+    public ResponseEntity<String> currency(final HttpServletRequest request,
+                                           @Valid @NotBlank @RequestParam("currency") final String currency,
+                                           @RequestParam("locale") final String localeIp) {
+
+        final Locale locale = request.getLocale();
+        final NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+
+        if (currency.equalsIgnoreCase("bitcoin")) {
+            return new ResponseEntity<>(numberFormat.format(bitcoin), HttpStatus.OK);
+        } else if (currency.equalsIgnoreCase("dogecoin")) {
+            return new ResponseEntity<>(numberFormat.format(dogecoin), HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("coin not found", HttpStatus.NOT_IMPLEMENTED);
     }
 
 }

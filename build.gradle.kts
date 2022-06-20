@@ -23,10 +23,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter:$springBootVersion")
     implementation("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
     implementation("org.apache.commons:commons-lang3:3.12.0")
+    implementation("org.springframework.boot:spring-boot-starter-validation:$springBootVersion")
 
     // Spring JSP
     implementation("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
-    //compileOnly("org.springframework.boot:spring-boot-starter-tomcat:$springBootVersion")
     implementation("javax.servlet:jstl:1.2")
     implementation("javax.servlet:javax.servlet-api:4.0.1")
     implementation("org.springframework.boot:spring-boot-starter-jetty:$springBootVersion")

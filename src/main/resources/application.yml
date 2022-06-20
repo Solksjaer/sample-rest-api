@@ -14,3 +14,6 @@ app:
   name: "sample-rest-api"
   contact: opinilla@gmail.com
   git: https://github.com/Solksjaer/sample-rest-api.git
+  currency:
+    bitcoin: 1.2
+    dogecoin: 3.3

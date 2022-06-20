@@ -21,8 +21,7 @@ function ajaxCall(methodUrl, type, formId, resultDiv) {
         type: type,
         data: dataForm,
         success: function (responseText) {
-            var jsonString = JSON.stringify(responseText, null, 4);
-            $('#' + resultDiv).html(syntaxHighlight(jsonString));
+            $('#' + resultDiv).html(responseText);
         },
         error: function (responseText) {
             try {

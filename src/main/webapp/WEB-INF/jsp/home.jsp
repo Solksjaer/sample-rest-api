@@ -36,7 +36,8 @@ WELCOME!
     </div>
 
     <div id="results">
-        <pre id="resultsContent" class="resultsContent"></pre>
+        Current unit price:
+        <pre id="resultsContent" class=resultsContent"></pre>
     </div>
 </div>
 
