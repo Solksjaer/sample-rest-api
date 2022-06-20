@@ -8,6 +8,8 @@
     <title>Entry page</title>
     <script type="text/javascript" src="${pageContext.request.contextPath}/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/helpers.js"></script>
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 
