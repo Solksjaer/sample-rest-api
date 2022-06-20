@@ -38,6 +38,8 @@ WELCOME!
     <div id="results">
         Current unit price:
         <pre id="resultsContent" class=resultsContent"></pre>
+        History:
+        <pre id="resultsHistory" class=resultsHistory"></pre>
     </div>
 </div>
 

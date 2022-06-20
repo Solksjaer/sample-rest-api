@@ -1,15 +1,17 @@
 // Buttons listeners
 $(document).ready(function () {
     $("#send").click(function () {
-        ajaxCall('currency', 'GET', 'ajaxform', 'resultsContent');
+        ajaxCall('currency', 'GET', 'ajaxform', 'resultsContent', 'resultsHistory');
     });
 });
+var history = {};
 
-function ajaxCall(methodUrl, type, formId, resultDiv) {
+function ajaxCall(methodUrl, type, formId, resultDiv, resultsHistory) {
 
     var callUrl = contextPath + methodUrl;
 
     clearDiv(resultDiv);
+    clearDiv(resultsHistory);
 
     var dataForm = null;
     if (formId != null) {
@@ -22,6 +24,12 @@ function ajaxCall(methodUrl, type, formId, resultDiv) {
         data: dataForm,
         success: function (responseText) {
             $('#' + resultDiv).html(responseText);
+            let selectedText = $("#currency option:selected").text();
+            if (history[selectedText] === undefined) {
+                history[selectedText] = [];
+            }
+            history[selectedText].push(responseText);
+            $('#' + resultsHistory).html(history[selectedText]);
         },
         error: function (responseText) {
             try {
@@ -30,6 +38,7 @@ function ajaxCall(methodUrl, type, formId, resultDiv) {
             }
             var jsonString = JSON.stringify(responseText, null, 4);
             $('#' + resultDiv).html(syntaxHighlight(jsonString));
+            $('#' + resultsHistory).html('');
         }
     });
 }
