@@ -6,6 +6,7 @@
 <html lang="en">
 <head>
     <title>Entry page</title>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/helpers.js"></script>
 </head>
 <body>
@@ -35,6 +36,7 @@ WELCOME!
     </div>
 
     <div id="results">
+        <pre id="resultsContent" class="resultsContent"></pre>
     </div>
 </div>
 

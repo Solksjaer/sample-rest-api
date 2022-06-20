@@ -5,7 +5,6 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
-    static-path-pattern: /resources/**
   security:
     user:
       name: username

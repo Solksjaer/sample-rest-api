@@ -1,9 +1,15 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 /**
  * @author <a href="mailto:opinilla@gmail.com">Oscar Pinilla</a>, <a href="https://github.com/Solksjaer">GitHub</a>
@@ -30,6 +36,14 @@ public class WebController {
         modelAndView.addObject("appContact", appContact);
 
         return modelAndView;
+    }
+
+    @GetMapping(path = "/currency", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody
+    String currency(final HttpServletRequest request,
+                    @RequestParam("currency") final String currency,
+                    @RequestParam("locale") final String locale) throws IOException {
+        return "someResponse";
     }
 
 }
